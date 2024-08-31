@@ -13,7 +13,7 @@ public class Ejercicio1 {
     public static void main(String[] args) {
         System.out.println("------ EJERCICIO 1 ------");
         
-        Scanner scanner = new Scanner(System.in);
+        Scanner numero = new Scanner(System.in);
         double[] numeros = new double[5];
         double suma = 0;
         double valorMaximo = 0;
@@ -22,7 +22,7 @@ public class Ejercicio1 {
         
         for (int i = 0; i < 5; i++){
             System.out.print("Ingrese el numero " + (i + 1) + ": ");
-            numeros[i] = scanner.nextDouble(); //nextDouble() captura ese número y lo devuelve como un valor de tipo double
+            numeros[i] = numero.nextDouble(); //nextDouble() captura ese número y lo devuelve como un valor de tipo double
             suma += numeros[i];
             
             if (numeros[i] > valorMaximo) {
@@ -41,6 +41,6 @@ public class Ejercicio1 {
         System.out.println("Valor minimo: " + valorMinimo);
         System.out.println("Promedio: " + promedio);
         
-        scanner.close();
+        numero.close();
     }
 }
