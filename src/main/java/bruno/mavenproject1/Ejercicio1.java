@@ -7,13 +7,14 @@ Utilizar estructuras repetitivas.
 */
 package bruno.mavenproject1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
         System.out.println("------ EJERCICIO 1 ------");
         
-        Scanner numero = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         double[] numeros = new double[5];
         double suma = 0;
         double valorMaximo = 0;
@@ -21,8 +22,18 @@ public class Ejercicio1 {
         boolean primerNumeroFlag = true;
         
         for (int i = 0; i < 5; i++){
-            System.out.print("Ingrese el numero " + (i + 1) + ": ");
-            numeros[i] = numero.nextDouble(); //nextDouble() captura ese número y lo devuelve como un valor de tipo double
+            boolean numeroValido = false;
+            while (!numeroValido){
+                try {
+                    System.out.print("Ingrese el numero " + (i + 1) + ": ");
+                    numeros[i] = scanner.nextDouble(); //nextDouble() captura ese número y lo devuelve como un valor de tipo double
+                    numeroValido = true;
+                } catch (InputMismatchException e){
+                    System.out.println("Ingrese un numero valido.");
+                    scanner.next(); // limpio el buffer de scanner
+                }
+            }
+            
             suma += numeros[i];
             
             if (numeros[i] > valorMaximo) {
@@ -41,6 +52,6 @@ public class Ejercicio1 {
         System.out.println("Valor minimo: " + valorMinimo);
         System.out.println("Promedio: " + promedio);
         
-        numero.close();
+        scanner.close();
     }
 }
