@@ -10,24 +10,47 @@ Nota: Utilizar estructuras repetitivas, selectivas y la función módulo (%)
 package bruno.mavenproject1;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Ejercicio6 {
     public static void main(String[] args){
         System.out.println("------ EJERCICIO 6 ------");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Anio de inicio: ");
-        int anioInicial = scanner.nextInt();
-        System.out.print("Anio final: ");
-        int anioFinal = scanner.nextInt();
-        
-        System.out.println("Los anios bisisestros desde " + anioInicial + " hasta " + anioFinal + " son: ");
-        for(int i = anioInicial; i < anioFinal + 1; i++){
-            if(esBisiestro(i)){
-                System.out.println(i);
+        try {
+            System.out.print("Anio de inicio: ");
+            int anioInicial = scanner.nextInt();
+            while (!validarAnio(anioInicial)){
+                System.out.print("Ingrese anio de inicio correcto: ");
+                anioInicial = scanner.nextInt();
             }
-        }
+            System.out.print("Anio final: ");
+            int anioFinal = scanner.nextInt();
+            while (!validarAnio(anioFinal)){
+                System.out.print("Ingrese anio de final correcto: ");
+                anioInicial = scanner.nextInt();
+            }
+            
+            System.out.println("Los anios bisisestros desde " + anioInicial + " hasta " + anioFinal + " son: ");
+            for(int i = anioInicial; i < anioFinal + 1; i++){
+                if(esBisiestro(i)){
+                    System.out.println(i);
+                }
+            }
+        } catch (InputMismatchException e){
+            System.out.print("Dato ingresado incorrecto.");
+            scanner.next();
+        };
+        
         scanner.close();
+    }
+    
+    public static boolean validarAnio (int anio) {
+        if (anio > 9999 || anio < 999) {
+            return false;
+        } else {
+            return true;
+        }
     }
     
     public static boolean esBisiestro(int anio){

@@ -10,7 +10,6 @@ Nota: Utilizar estructuras repetitivas y selectivas
  */
 package bruno.mavenproject1;
 
-import static bruno.mavenproject1.Ejercicio3.esPrimo;
 import java.util.Scanner;
 
 public class Ejercicio4 {
@@ -25,7 +24,6 @@ public class Ejercicio4 {
         int contadorEncontrados = 0;
         
         //inicializo desde el numero 1
-        
         int numero = 1;
         System.out.println("Primeros 4 numeros perfectos: ");
         

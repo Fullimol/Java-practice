@@ -43,10 +43,10 @@ public class Ejercicio8 {
             System.out.println("******* RECIBO *******");
             System.out.println("Nombre: " + nombre);
             System.out.println("Antiguedad: " + aniosAntiguedad);
-            System.out.println("Valor hora: " + valorHora);
-            System.out.println("Total bruto: " + valorTotal);
-            System.out.println("Total de descuento: " + valorDescuento);
-            System.out.println("Valor NETO: " + (valorTotal - valorDescuento));
+            System.out.println("Valor hora: $" + valorHora);
+            System.out.println("Total bruto: $" + valorTotal);
+            System.out.println("Total de descuento: -$" + valorDescuento);
+            System.out.println("Valor NETO: $" + (valorTotal - valorDescuento));
             System.out.println("**********************");
             System.out.println(" ");
             
